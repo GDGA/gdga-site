@@ -1,17 +1,17 @@
 boomerang.factory('Config', function () {
     return {
         //modify these
-        'name'          : 'GDG Space Coast',
-        'id'            : '103959793061819610212',
-        'google_api'    : 'AIzaSyA9ALjr2iWvhf3Rsz9-bH0cEcDcrdkpuAg',
-        'pwa_id'        : '5915725140705884785', //picasa web album id, must belong to google+ id above
-        'domain'        : 'http://www.gdgspacecoast.org',
+        'name'          : 'GDG Allahabad',
+        'id'            : '102753048484564707718',
+        'google_api'    : 'AIzaSyDLfKqoprr6LT805Cs-kWu7fj3gZuprdDI',
+        'pwa_id'        : '', //picasa web album id, must belong to google+ id above
+        'domain'        : 'http://gdga-site.appspot.com',
         'cover' : {
-            title: 'Google I/O 2014',
-            subtitle: 'Google\'s yearly developer event is being held June 25-26th in San Francisco, CA.',
+            title: 'Google Developers Group - Allahabad',
+            subtitle: 'In-person, local developer community groups near you.',
             button: {
                 text: 'Find out more',
-                url: 'https://www.google.com/events/io'
+                url: 'https://developers.google.com/groups/chapter/102753048484564707718/'
             }
         }
     };
