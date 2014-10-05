@@ -25,7 +25,11 @@ boomerang.controller('AboutControl', function ($scope, $http, $location, $sce, C
     $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
             '?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount&key=' + Config.google_api).
         success(function (data) {
+            $scope.about = data;
             $scope.desc = data.aboutMe;
+            $scope.cover.url = data.cover.coverPhoto.url;
+            $scope.cover.image = data.image.url;
+            $scope.cover.plusOneCount = data.plusOneCount;
             $sce.trustAsHtml($scope.desc);
 
             if (data.cover && data.cover.coverPhoto.url) {
@@ -145,11 +149,12 @@ boomerang.controller("EventsControl", function ($scope, $http, Config) {
     $scope.loading = true;
     $scope.$parent.activeTab = "events";
 
-    $scope.events = {past:[] ,future:[]};
+    $scope.events = {past:[] ,future:[], countPast:0, countFuture:0};
     var url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/upcoming?callback=JSON_CALLBACK';
     var headers = { 'headers': {'Accept': 'application/json;'}, 'timeout': 2000 };
     $http.jsonp(url, headers)
         .success(function (data) {
+            $scope.events.countFuture = data.count;
             for (var i = data.items.length - 1; i >= 0; i--) {
                 $scope.events.future.push(data.items[i]);
             }
@@ -160,6 +165,7 @@ boomerang.controller("EventsControl", function ($scope, $http, Config) {
     url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/past?callback=JSON_CALLBACK';
     $http.jsonp(url, headers)
         .success(function (data) {
+            $scope.events.countPast = data.count;
             for (var i = data.items.length - 1; i >= 0; i--) {
                 $scope.events.past.push(data.items[i]);
             }

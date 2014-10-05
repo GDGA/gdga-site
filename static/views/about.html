@@ -5,20 +5,29 @@
         <img ng-show="cover.url" class="col-md-12" ng-src="{{cover.url}}" alt="Google+ Cover Image">
         <div class="col-md-12 hidden-phone" id="cover" ng-show="cover.url">
             <div id="cover-content">
-                <h1 class="col-md-12">{{cover.title}}</h1>
+                <h1 class="col-md-12">
+                    <img ng-show="cover.image" ng-src="{{cover.image}}" alt="Chapter Icon">&nbsp{{cover.title}}
+                </h1>
                 <p class="col-md-12">{{cover.subtitle}}</p>
-                <p class="col-md-12">
+                <p class="col-md-10">
                     <a class="btn btn-primary btn-large" ng-href="{{cover.button.url}}" target="_blank">{{cover.button.text}}</a>
                 </p>
+                <p class="col-md-2">{{cover.plusOneCount}} Followers</p>
             </div>
         </div>
         <hr>
         <p class="col-md-12" ng-bind-html="desc"></p>
         <h4>Sponsors:</h4>
         <div>
-            <a href="https://developers.google.com/"><img class="sponsor" src="../images/Google-Developers.png" alt="Google Developers"></a>
-            <a href="http://www.united.ac.in/"><img class="sponsor" src="../images/united.png" alt="United Group of Institutions"></a>
-            <a href="http://www.bbdu.ac.in/"><img class="sponsor" src="../images/bbd.png" alt="Babu Banarsi Das University"></a>            
+            <a href="https://developers.google.com/">
+                <img class="sponsor" src="../images/Google-Developers.png" alt="Google Developers">
+            </a>
+            <a href="http://www.united.ac.in/">
+                <img class="sponsor" src="../images/united.png" alt="United Group of Institutions">
+            </a>
+            <a href="http://www.bbdu.ac.in/">
+                <img class="sponsor" src="../images/bbd.png" alt="Babu Banarsi Das University">
+            </a>
         </div>
     </div>
 </div>
