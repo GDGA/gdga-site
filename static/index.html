@@ -10,58 +10,51 @@
     <meta name="application-name" content="GDG Boomerang">
     <meta name="fragment" content="!" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,300,700' rel='stylesheet' type='text/css'>
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href="css/gdg.css" rel="stylesheet" media="screen">
     <link rel="icon" sizes="16x16 32x32" href="/favicon.ico">
-    <script>
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-34512503-1', 'auto');
-    ga('send', 'pageview');
-    </script>
 </head>
 
 <body ng-controller="MainControl">
     <!-- NAV -->
-    <div class="navbar navbar-static-top navbar-inverse">
-        <div class="navbar-inner">
-            <div class="container">
-                <button type="button" class="btn btn-navbar" ng-click="isNavCollapsed = !isNavCollapsed">
+    <header class="navbar navbar-static-top bs-docs-nav navbar-inverse" id="top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="brand" ng-cloak id="gdg_chapter_name" href="#!/about">{{ chapter_name }}</a>
-
-                <div class="nav-collapse" collapse="isNavCollapsed" ng-click="isNavCollapsed = true">
-                    <ul class="nav">
-                        <li ng-class="{ 'active' : activeTab=='about' }"><a href="#!/about">About</a>
-                        </li>
-                        <li ng-class="{ 'active' : activeTab=='news' }"><a href="#!/news">News</a>
-                        </li>
-                        <li ng-class="{ 'active' : activeTab=='events' }"><a href="#!/events">Events</a>
-                        </li>
-                        <li><a ng-href="{{ google_plus_link }}" rel="publisher" target="_blank">Google+</a>
-                        </li>
-                    </ul>
-                </div>
+                <a href="#!/about" ng-cloak id="gdg_chapter_name" class="navbar-brand">{{ chapter_name }}</a>
             </div>
+            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{ 'active' : activeTab=='about' }">
+                        <a href="#!/about">About</a>
+                    </li>
+                    <li ng-class="{ 'active' : activeTab=='news' }">
+                        <a href="#!/news">News</a>
+                    </li>
+                    <li ng-class="{ 'active' : activeTab=='events' }">
+                        <a href="#!/events">Events</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a ng-href="{{ google_plus_link }}" rel="publisher" target="_blank">Google+</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-    </div>
+    </header>
     <div class="container">
         <div class="row" ng-view>{{cover}}</div>
     </div>
 </body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="http://code.angularjs.org/1.2.16/angular.min.js"></script>
 <script src="http://code.angularjs.org/1.2.16/angular-sanitize.min.js"></script>
 <script src="http://code.angularjs.org/1.2.16/angular-route.min.js"></script>
@@ -69,5 +62,21 @@
 <script src="lib/angular.ui.min.js"></script>
 <script src="js/boomerang.js"></script>
 <script src="js/config.js"></script>
+<script>
+(function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-34512503-1', 'auto');
+ga('send', 'pageview');
+</script>
 
 </html>
