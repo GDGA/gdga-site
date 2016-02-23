@@ -150,7 +150,7 @@ boomerang.controller("EventsControl", function ($scope, $http, Config) {
     $scope.$parent.activeTab = "events";
 
     $scope.events = {past:[] ,future:[], countPast:0, countFuture:0};
-    var url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/upcoming?callback=JSON_CALLBACK';
+    var url = 'https://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/upcoming?callback=JSON_CALLBACK';
     var headers = { 'headers': {'Accept': 'application/json;'}, 'timeout': 2000 };
     $http.jsonp(url, headers)
         .success(function (data) {
@@ -162,7 +162,7 @@ boomerang.controller("EventsControl", function ($scope, $http, Config) {
             $scope.status = 'ready';
         });
 
-    url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/past?callback=JSON_CALLBACK';
+    url = 'https://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/past?callback=JSON_CALLBACK';
     $http.jsonp(url, headers)
         .success(function (data) {
             $scope.events.countPast = data.count;
